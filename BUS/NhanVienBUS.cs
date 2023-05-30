@@ -23,13 +23,33 @@ namespace BUS
                 return "requirePassword";
             }
 
-            string infor = nhanVienAccess.checkLogin(nhanvien);
+            string infor = nhanVienAccess.checkLoginDTO(nhanvien);
             return infor;
         }
 
         public List<NhanVien> dsNhanVien()
         {
             return nhanVienAccess.dsNhanVienDTO();
+        }
+
+        public List<NhanVien> timNhanVien(string tenNhanVien)
+        {
+            return nhanVienAccess.timKiemNhanVien(tenNhanVien);
+        }
+        public bool themNhanVien(NhanVien nhanvien)
+        {
+            return nhanVienAccess.themNhanVien(nhanvien);
+        }
+
+        public bool suaNhanVien(NhanVien nhanvien)
+        {
+  
+            return nhanVienAccess.suaNhanVien(nhanvien);
+        }
+        
+        public bool xoaNhanVien(NhanVien nhanvien)
+        {
+            return nhanVienAccess.xoaNhanVien(nhanvien);
         }
     }
 }

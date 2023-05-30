@@ -24,7 +24,6 @@ namespace Final3
 
         private void frm_dangNhap_Load(object sender, EventArgs e)
         {
-
         }
 
  
