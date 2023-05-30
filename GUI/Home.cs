@@ -129,12 +129,17 @@ namespace Final3
 
         private void btn_hoaDon_Click(object sender, EventArgs e)
         {
-
+            openFormChid(new frm_HoaDon());
         }
 
         private void btn_kho_Click(object sender, EventArgs e)
         {
             openFormChid(new frm_quanLyTraiCay());
+        }
+
+        private void btn_dangXuat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

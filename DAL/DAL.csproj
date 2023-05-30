@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CT_Luong.cs" />
+    <Compile Include="HoaDonDAL.cs" />
     <Compile Include="NhanVienAccess.cs" />
     <Compile Include="DBAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

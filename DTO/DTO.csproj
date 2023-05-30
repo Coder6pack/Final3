@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CT_LuongDTO.cs" />
+    <Compile Include="HoaDonDTO.cs" />
     <Compile Include="NhanVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -112,5 +112,34 @@ namespace DAL
             return ctluong;
         }
 
+        public List<HoaDonDTO> loadHoaDonDTO()
+        {
+            List<HoaDonDTO> hoadon = new List<HoaDonDTO>();
+            SqlConnection conn = sqlConnecTionData.connect();
+            conn.Open();
+            SqlCommand command = new SqlCommand("Select * from hoaDon", conn);
+            command.Connection = conn;
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    HoaDonDTO hoa_don = new HoaDonDTO();
+                    hoa_don.id = reader.GetInt32(0);
+                    hoa_don.khachHang_id = reader.GetInt32(1);
+                    hoa_don.nhanVien_id = reader.GetInt32(2);
+                    hoa_don.ngayLap = reader.GetDateTime(3);
+                    hoa_don.thanhTien = reader.GetSqlMoney(4);
+                    hoa_don.chietKhau = reader.GetInt32(5);
+                    hoa_don.trangThai = reader.GetInt32(6);
+                    hoadon.Add(hoa_don);
+                }
+
+            }
+
+            return hoadon;
+        }
+
     }
 }
