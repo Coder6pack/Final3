@@ -15,5 +15,10 @@ namespace BUS
         {
             return ctLuong.loadCT_LuongDTO();
         }
+
+        public List<CT_LuongDTO> timKiemCT_Luong(string tenid)
+        {
+            return ctLuong.timKiemCTLuong(tenid);
+        }
     }
 }

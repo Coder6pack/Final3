@@ -15,7 +15,7 @@ namespace DAL
             List<CT_LuongDTO> ctluong = new List<CT_LuongDTO>();
             SqlConnection conn = sqlConnecTionData.connect();
             conn.Open();
-            SqlCommand command = new SqlCommand("Select * from CT_Luong", conn);
+            SqlCommand command = new SqlCommand("Select CT_Luong.id,CT_Luong.nhanVien_id,CT_Luong.luong,CT_Luong.gioDangNhap,CT_Luong.thang_Nam,CT_Luong.tongLuong  from CT_Luong,nhanVien where nhanVien.trangThai = 0 and CT_Luong.nhanVien_id = nhanVien.id", conn);
             command.Connection = conn;
             SqlDataReader reader = command.ExecuteReader();
 
@@ -36,6 +36,35 @@ namespace DAL
             }
 
             return ctluong;
+        }
+
+        public List<CT_LuongDTO> timKiemCTLuong(string tenCTLuong)
+        {
+            List<CT_LuongDTO> dsctl = new List<CT_LuongDTO>();
+            SqlConnection conn = sqlConnecTionData.connect();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Select * from CT_Luong where id like @id", conn);
+            cmd.Parameters.AddWithValue("@id", "%" + tenCTLuong + "%");
+            cmd.Connection = conn;
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    CT_LuongDTO ct_luong = new CT_LuongDTO();
+                    ct_luong.id = reader.GetInt32(0);
+                    ct_luong.nhanVien_id = reader.GetInt32(1);
+                    ct_luong.luong = reader.GetSqlMoney(2);
+                    ct_luong.gioDangNhap = reader.GetInt32(3);
+                    ct_luong.thang_Nam = reader.GetString(4);
+                    ct_luong.tongLuong = reader.GetDecimal(5);
+                    dsctl.Add(ct_luong);
+                }
+
+                reader.Close();
+                conn.Close();
+            }
+            return dsctl;
         }
     }
 }

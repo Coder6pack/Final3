@@ -40,8 +40,8 @@
             this.btn_reset = new System.Windows.Forms.Button();
             this.txt_tongLuong = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.btn_timCTLuong = new System.Windows.Forms.Button();
+            this.txt_idCTLuong = new System.Windows.Forms.TextBox();
             this.txt_luong = new System.Windows.Forms.TextBox();
             this.txt_thangNam = new System.Windows.Forms.TextBox();
             this.txt_gioDangNhap = new System.Windows.Forms.TextBox();
@@ -81,6 +81,7 @@
             this.tcr_nhanVien = new System.Windows.Forms.TabControl();
             this.tpg_nhanVien = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtp_ngaySinh = new System.Windows.Forms.DateTimePicker();
             this.ptc_anhNhanVien = new System.Windows.Forms.PictureBox();
             this.btn_reset_nhanVien = new System.Windows.Forms.Button();
             this.btn_chon = new System.Windows.Forms.Button();
@@ -102,7 +103,6 @@
             this.gioDangNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thangNam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tongLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtp_ngaySinh = new System.Windows.Forms.DateTimePicker();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nhanVien)).BeginInit();
             this.tcr_nhanVien.SuspendLayout();
@@ -158,6 +158,7 @@
             this.txt_timKiem.Name = "txt_timKiem";
             this.txt_timKiem.Size = new System.Drawing.Size(380, 32);
             this.txt_timKiem.TabIndex = 20;
+            this.txt_timKiem.TextChanged += new System.EventHandler(this.txt_timKiem_TextChanged);
             // 
             // txt_trangThai
             // 
@@ -210,8 +211,8 @@
             this.panel4.Controls.Add(this.btn_xoa);
             this.panel4.Controls.Add(this.txt_tongLuong);
             this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.button8);
-            this.panel4.Controls.Add(this.textBox13);
+            this.panel4.Controls.Add(this.btn_timCTLuong);
+            this.panel4.Controls.Add(this.txt_idCTLuong);
             this.panel4.Controls.Add(this.txt_luong);
             this.panel4.Controls.Add(this.txt_thangNam);
             this.panel4.Controls.Add(this.txt_gioDangNhap);
@@ -260,24 +261,26 @@
             this.label11.TabIndex = 34;
             this.label11.Text = "Tổng lương";
             // 
-            // button8
+            // btn_timCTLuong
             // 
-            this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
-            this.button8.Location = new System.Drawing.Point(974, 13);
-            this.button8.Margin = new System.Windows.Forms.Padding(4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(144, 63);
-            this.button8.TabIndex = 33;
-            this.button8.Text = "Tìm";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btn_timCTLuong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
+            this.btn_timCTLuong.Location = new System.Drawing.Point(974, 13);
+            this.btn_timCTLuong.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_timCTLuong.Name = "btn_timCTLuong";
+            this.btn_timCTLuong.Size = new System.Drawing.Size(144, 63);
+            this.btn_timCTLuong.TabIndex = 33;
+            this.btn_timCTLuong.Text = "Tìm";
+            this.btn_timCTLuong.UseVisualStyleBackColor = true;
+            this.btn_timCTLuong.Click += new System.EventHandler(this.btn_timCTLuong_Click);
             // 
-            // textBox13
+            // txt_idCTLuong
             // 
-            this.textBox13.Location = new System.Drawing.Point(568, 27);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(380, 32);
-            this.textBox13.TabIndex = 32;
+            this.txt_idCTLuong.Location = new System.Drawing.Point(568, 27);
+            this.txt_idCTLuong.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_idCTLuong.Name = "txt_idCTLuong";
+            this.txt_idCTLuong.Size = new System.Drawing.Size(380, 32);
+            this.txt_idCTLuong.TabIndex = 32;
+            this.txt_idCTLuong.TextChanged += new System.EventHandler(this.txt_idCTLuong_TextChanged);
             // 
             // txt_luong
             // 
@@ -676,6 +679,13 @@
             this.panel1.Size = new System.Drawing.Size(2368, 1327);
             this.panel1.TabIndex = 5;
             // 
+            // dtp_ngaySinh
+            // 
+            this.dtp_ngaySinh.Location = new System.Drawing.Point(276, 227);
+            this.dtp_ngaySinh.Name = "dtp_ngaySinh";
+            this.dtp_ngaySinh.Size = new System.Drawing.Size(326, 32);
+            this.dtp_ngaySinh.TabIndex = 27;
+            // 
             // ptc_anhNhanVien
             // 
             this.ptc_anhNhanVien.Location = new System.Drawing.Point(1339, 98);
@@ -896,13 +906,6 @@
             this.tongLuong.MinimumWidth = 10;
             this.tongLuong.Name = "tongLuong";
             // 
-            // dtp_ngaySinh
-            // 
-            this.dtp_ngaySinh.Location = new System.Drawing.Point(276, 227);
-            this.dtp_ngaySinh.Name = "dtp_ngaySinh";
-            this.dtp_ngaySinh.Size = new System.Drawing.Size(326, 32);
-            this.dtp_ngaySinh.TabIndex = 27;
-            // 
             // frm_nhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -947,8 +950,8 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txt_tongLuong;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Button btn_timCTLuong;
+        private System.Windows.Forms.TextBox txt_idCTLuong;
         private System.Windows.Forms.TextBox txt_luong;
         private System.Windows.Forms.TextBox txt_thangNam;
         private System.Windows.Forms.TextBox txt_gioDangNhap;

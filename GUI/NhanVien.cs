@@ -230,9 +230,22 @@ namespace Final3
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             dgv_nhanVien.DataSource = nhanvienBUS.timNhanVien(txt_timKiem.Text);
+        }
 
+        private void txt_timKiem_TextChanged(object sender, EventArgs e)
+        {
+            dgv_nhanVien.DataSource = nhanvienBUS.timNhanVien(txt_timKiem.Text);
+        }
+
+        private void txt_idCTLuong_TextChanged(object sender, EventArgs e)
+        {
+           dgv_ctLuong.DataSource = ctLuongBUS.timKiemCT_Luong(txt_idCTLuong.Text);
+        }
+
+        private void btn_timCTLuong_Click(object sender, EventArgs e)
+        {
+            dgv_ctLuong.DataSource = ctLuongBUS.timKiemCT_Luong(txt_idCTLuong.Text);
         }
     }
 }

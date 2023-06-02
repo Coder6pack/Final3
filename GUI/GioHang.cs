@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace GUI
 {
     public partial class frm_gioHang : Form
     {
+        GioHangTraiCayBUS gioHangBus = new GioHangTraiCayBUS();
         public frm_gioHang()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace GUI
 
         private void GioHang_Load(object sender, EventArgs e)
         {
-
+            dgv_dsTraiCay.DataSource = gioHangBus.loadGioHang();
         }
     }
 }
