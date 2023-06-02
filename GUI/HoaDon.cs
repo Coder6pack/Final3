@@ -45,6 +45,15 @@ namespace GUI
             hoadondtos.thanhTien = SqlMoney.Parse(txt_thanhtien_hoadon.Text);
             hoadondtos.chietKhau = int.Parse(txt_chietkhau_hoadon.Text);
             hoadondtos.trangThai = int.Parse(txt_trangthai.Text);
+            if (hoadonbus.ThemCTHoaDon(hoadondtos))
+            {
+                MessageBox.Show("Thêm chi tiết hóa đơn thành công");
+                hoadonbus.loadDSHoaDon();
+            }
+            else
+            {
+                MessageBox.Show("Thêm chi tiết hóa đơn thất bại");
+            }
         }
     }
 }

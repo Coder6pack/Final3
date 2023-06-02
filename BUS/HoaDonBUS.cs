@@ -18,5 +18,9 @@ namespace BUS
         {
             return hoadons.ThemHoaDon(HoaDonDTOs);
         }
+        public bool ThemCTHoaDon(CTHoaDonDTO cthoadondto)
+        {
+            return hoadons.ThemCTHoaDon(cthoadondto);
+        }
     }
 }
