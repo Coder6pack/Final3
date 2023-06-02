@@ -46,5 +46,10 @@ namespace Final3
         {
 
         }
+
+        private void dgv_nhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

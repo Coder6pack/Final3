@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CTHoaDonDAL.cs" />
     <Compile Include="CT_Luong.cs" />
+    <Compile Include="HoaDonDAL.cs" />
+    <Compile Include="lo_TraiCayDAL.cs" />
     <Compile Include="NhanVienAccess.cs" />
     <Compile Include="DBAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

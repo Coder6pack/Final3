@@ -41,3 +41,4 @@ C:\Users\Admin\Source\Repos\Final3\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.ca
 C:\Users\Admin\Source\Repos\Final3\GUI\obj\Debug\GUI.exe
 C:\Users\Admin\Source\Repos\Final3\GUI\obj\Debug\GUI.pdb
 C:\Users\Admin\Source\Repos\Final3\GUI\obj\Debug\GUI.frm_HoaDon.resources
+C:\Users\Admin\Source\Repos\Final3\GUI\obj\Debug\GUI.csproj.CopyComplete

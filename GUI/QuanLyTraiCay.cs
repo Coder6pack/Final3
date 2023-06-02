@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BUS;
+using DTO;
 namespace Final3
 {
     public partial class frm_quanLyTraiCay : Form
@@ -291,8 +292,76 @@ namespace Final3
         {
 
         }
-
+        public lo_TraiCayBUS lo_traicaybus = new lo_TraiCayBUS();
         private void frm_quanLyTraiCay_Load(object sender, EventArgs e)
+        {
+            dgv_lohang.DataSource = lo_traicaybus.loadlo_TraiCay();
+        }
+
+        private void btn_them_lohang_Click(object sender, EventArgs e)
+        {
+            lo_TraiCayDTO lo_traicays = new lo_TraiCayDTO();
+            lo_traicays.ngayNhap = DateTime.Parse(datetime_lohang.Text);
+            if (lo_traicaybus.Themlo_TraiCay(lo_traicays))
+            {
+                MessageBox.Show("Thêm lô hàng thành công");
+                lo_traicaybus.loadlo_TraiCay();
+                dgv_lohang.DataSource = lo_traicaybus.loadlo_TraiCay();
+            }
+            {
+                MessageBox.Show("Thêm lô hàng thất bại");
+            }
+        }
+
+        private void dgv_lohang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex>-1)
+            {
+                DataGridViewRow row = dgv_lohang.Rows[e.RowIndex];
+                txt_malohang.Text = row.Cells["MaLoTraiCay"].Value.ToString();
+                datetime_lohang.Text = row.Cells["NgayNhap"].Value.ToString();
+            }    
+        }
+
+        private void btn_xoa_lohang_Click(object sender, EventArgs e)
+        {
+            int malohang = int.Parse(txt_malohang.Text);
+            if (lo_traicaybus.Xoalo_TraiCay(malohang))
+            {
+                MessageBox.Show("Xóa lo hàng thành công");
+                lo_traicaybus.loadlo_TraiCay();
+                dgv_lohang.DataSource = lo_traicaybus.loadlo_TraiCay();
+            }
+            else
+            {
+                MessageBox.Show("Xóa lô hàng thất bại");
+            }
+        }
+
+        private void btn_capnhat_lohang_Click(object sender, EventArgs e)
+        {
+            lo_TraiCayDTO lo_traicays = new lo_TraiCayDTO();
+            lo_traicays.id = int.Parse(txt_malohang.Text);
+            lo_traicays.ngayNhap = datetime_lohang.Value;
+            if (lo_traicaybus.CapNhatlo_TraiCay(lo_traicays))
+            {
+                MessageBox.Show("Cập Nhật lô hàng thành công");
+                lo_traicaybus.loadlo_TraiCay();
+                dgv_lohang.DataSource = lo_traicaybus.loadlo_TraiCay();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật lô hàng thất bại");
+            }
+        }
+
+        private void btn_timkiem_lohang_Click(object sender, EventArgs e)
+        {
+           int maso = int.Parse(txt_matimkiem.Text);
+            dgv_lohang.DataSource = lo_traicaybus.TimkiemloTraiCay(maso);
+        }
+
+        private void panel6_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
