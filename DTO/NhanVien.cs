@@ -18,5 +18,6 @@ namespace DTO
         public string sdt { get; set; }
         public string diaChi { get; set; }
         public int trangThai { get; set; }
+        public string hinh { get; set; }
     }
 }
